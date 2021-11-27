@@ -9,6 +9,7 @@ import (
 var (
 	Version  string
 	Revision string
+	BuildTag string
 )
 
 func init() {
@@ -20,7 +21,7 @@ func versionCmd() *cobra.Command {
 		Use:   "version",
 		Short: "Print version",
 		Run: func(cmd *cobra.Command, args []string) {
-			fmt.Printf("gotoggl version: %s, revision: %s\n", Version, Revision)
+			fmt.Printf("gotoggl version: %s, revision: %s, buildTag: %s\n", Version, Revision, BuildTag)
 		},
 	}
 
