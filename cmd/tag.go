@@ -48,10 +48,10 @@ func runtagGetCmd(cmd *cobra.Command, args []string) {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println("index", ",", "id", ",", "name")
-	for i, v := range account.Data.Tags {
-		fmt.Println(i, ",", v.ID, ",", v.Name)
-	}
 
+	PrintStructHeader(account.Data.Tags[0])
+	for _, v := range account.Data.Tags {
+		PrintStructValues(v)
+	}
 	return
 }

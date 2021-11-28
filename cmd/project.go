@@ -44,7 +44,10 @@ func runprojectGetCmd(cmd *cobra.Command, args []string) {
 
 	session := togglclient.OpenSession(token)
 	account, err := session.GetAccount()
-
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
 	project, err := session.GetProjects(account.Data.Workspaces[0].ID)
 
 	if err != nil {
@@ -52,9 +55,9 @@ func runprojectGetCmd(cmd *cobra.Command, args []string) {
 		return
 	}
 
-	fmt.Println("index", ",", "id", ",", "name")
-	for i, v := range project {
-		fmt.Println(i, ",", v.ID, ",", v.Name)
+	PrintStructHeader(project[0])
+	for _, v := range project {
+		PrintStructValues(v)
 	}
 	return
 }

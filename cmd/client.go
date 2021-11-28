@@ -48,10 +48,9 @@ func runClientGetCmd(cmd *cobra.Command, args []string) {
 		fmt.Println(err)
 		return
 	}
-
-	fmt.Println("index", ",", "id", ",", "name")
-	for i, v := range client {
-		fmt.Println(i, ",", v.ID, ",", v.Name)
+	PrintStructHeader(client[0])
+	for _, v := range client {
+		PrintStructValues(v)
 	}
 	return
 }

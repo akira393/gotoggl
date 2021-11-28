@@ -2,8 +2,6 @@ package cmd
 
 import (
 	"errors"
-	"fmt"
-	"reflect"
 
 	"github.com/akira393/togglclient"
 	"github.com/spf13/cobra"
@@ -64,22 +62,9 @@ func runReportDetailCmd(cmd *cobra.Command, args []string) error {
 	for i := 1; i <= pagenum; i++ {
 		report, _ := session.GetDetailedReport(workspaceId, since, until, i)
 
-		for k, v := range report.Data {
-			rtCst := reflect.TypeOf(v)
-			rvCst := reflect.ValueOf(v)
-			if k == 0 {
-				for j := 0; j < rtCst.NumField(); j++ {
-					f := rtCst.Field(j)
-					fmt.Print(f.Name, ",")
-				}
-				fmt.Println()
-			}
-			for j := 0; j < rtCst.NumField(); j++ {
-				f := rtCst.Field(j)
-				value := rvCst.FieldByName(f.Name).Interface()
-				fmt.Print(value, ",")
-			}
-			fmt.Println()
+		PrintStructHeader(report.Data[0])
+		for _, v := range report.Data {
+			PrintStructValues(v)
 		}
 	}
 	return nil
