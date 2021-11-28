@@ -6,19 +6,6 @@ gotoggl is command line interface tool for toggl api client.
 
 ## Setup
 
-```bash
-$ gotoggl configure
-
-toggl api token: xxxxxxxxxxxxxxx
-```
-
-check install
-
-```bash
-$ gotoggl version
-gotoggl version: 1.0.0, revision: a1d30dd, buildTag: v1.0.0
-```
-
 set toggl api token
 
 ```bash
