@@ -59,5 +59,4 @@ func runprojectGetCmd(cmd *cobra.Command, args []string) {
 	for _, v := range project {
 		PrintStructValues(v)
 	}
-	return
 }

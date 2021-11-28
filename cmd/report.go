@@ -44,7 +44,7 @@ func runReportDetailCmd(cmd *cobra.Command, args []string) error {
 	until := args[1]
 	token := viper.GetString("TOGGL_API_TOKEN")
 	if token == "" {
-		return errors.New("Unable to locate credentials. You can configure credentials by running 'gotoggl configure'.")
+		return errors.New("unable to locate credentials. you can configure credentials by running 'gotoggl configure'")
 	}
 
 	session := togglclient.OpenSession(token)

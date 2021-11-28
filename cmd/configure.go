@@ -36,5 +36,4 @@ func runConfigulreCmd(cmd *cobra.Command, args []string) {
 	viper.Set("TOGGL_API_TOKEN", scanner.Text())
 	viper.WriteConfigAs(home + "/.gotoggl.yaml")
 
-	return
 }

@@ -53,5 +53,4 @@ func runtagGetCmd(cmd *cobra.Command, args []string) {
 	for _, v := range account.Data.Tags {
 		PrintStructValues(v)
 	}
-	return
 }

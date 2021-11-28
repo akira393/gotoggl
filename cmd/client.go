@@ -52,5 +52,4 @@ func runClientGetCmd(cmd *cobra.Command, args []string) {
 	for _, v := range client {
 		PrintStructValues(v)
 	}
-	return
 }
