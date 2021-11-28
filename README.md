@@ -1,5 +1,6 @@
-[![release](https://github.com/akira393/gotoggl/actions/workflows/release.yml/badge.svg)](https://github.com/akira393/gotoggl/actions/workflows/release.yml)
 # gotoggl
+
+[![release](https://github.com/akira393/gotoggl/actions/workflows/release.yml/badge.svg)](https://github.com/akira393/gotoggl/actions/workflows/release.yml)
 
 gotoggl is command line interface tool for toggl api client.
 
