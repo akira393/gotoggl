@@ -61,8 +61,9 @@ func runReportDetailCmd(cmd *cobra.Command, args []string) error {
 	}
 	for i := 1; i <= pagenum; i++ {
 		report, _ := session.GetDetailedReport(workspaceId, since, until, i)
-
-		PrintStructHeader(report.Data[0])
+		if i == 1 {
+			PrintStructHeader(report.Data[0])
+		}
 		for _, v := range report.Data {
 			PrintStructValues(v)
 		}
