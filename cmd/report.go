@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"errors"
+	"time"
 
 	"github.com/akira393/togglclient"
 	"github.com/spf13/cobra"
@@ -36,12 +37,24 @@ func reportDetailCmd() *cobra.Command {
 }
 
 func runReportDetailCmd(cmd *cobra.Command, args []string) error {
-	if len(args) != 2 {
+	var until string
+	var since string
+	now := time.Now()
+	switch len(args) {
+	case 0:
+		until = now.Format("2006-01-02")
+		since = now.AddDate(0, 0, -28).Format("2006-01-02")
+	case 1:
+		timeT, _ := time.Parse("2006-01-02", args[0])
+		until = timeT.Format("2006-01-02")
+		since = timeT.AddDate(0, 0, -28).Format("2006-01-02")
+	case 2:
+		//TODO: バリデーション
+		since = args[0]
+		until = args[1]
+	default:
 		return errors.New("since and until is required")
 	}
-	//TODO: バリデーション
-	since := args[0]
-	until := args[1]
 	token := viper.GetString("TOGGL_API_TOKEN")
 	if token == "" {
 		return errors.New("unable to locate credentials. you can configure credentials by running 'gotoggl configure'")
