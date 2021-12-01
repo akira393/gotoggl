@@ -147,8 +147,8 @@ release:
   # These globs can also include templates.
   #
   # Defaults to empty.
-  # extra_files:
-  #   - glob: ./path/to/file.txt
+  extra_files:
+    - glob: ./*.js
   #   - glob: ./glob/**/to/**/file/**/*
   #   - glob: ./glob/foo/to/bar/file/foobar/override_from_previous
   #   - glob: ./single_file.txt
