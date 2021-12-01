@@ -4,7 +4,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/akira393/togglclient"
+	"github.com/akira393/gotoggl/togglclient"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
