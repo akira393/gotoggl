@@ -3,7 +3,6 @@ module github.com/akira393/gotoggl
 go 1.17
 
 require (
-	github.com/akira393/togglclient v0.0.0-20211127081409-26d1c9886334
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/viper v1.9.0
 )
